@@ -1,0 +1,528 @@
+openapi: 3.0.0
+info:
+  title: Seeds API
+  description: ''
+  version: 1.0.0
+servers:
+  - url: http://{{host}}
+tags:
+  - name: Account
+    description: ''
+  - name: Trade
+    description: ''
+  - name: Market Data
+    description: ''
+  - name: Fund
+    description: ''
+paths:
+  /alpaca/createAccount:
+    post:
+      tags:
+        - Account
+      summary: Create Account
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n  \"contact\": {\n    \"email_address\":
+                \"r4hmadn1@gmail.com\",\n    \"phone_number\":
+                \"+6287821655618\",\n    \"street_address\": [\"20 N San Mateo
+                Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\":
+                \"Bandung\",\n    \"state\": \"CA\",\n    \"postal_code\":
+                \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\":
+                {\n    \"given_name\": \"Ryan\",\n    \"middle_name\":
+                \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n   
+                \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\":
+                \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n   
+                \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\":
+                \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n   
+                \"funding_source\": [\"employment_income\"]\n  },\n 
+                \"disclosures\": {\n    \"is_control_person\": false,\n   
+                \"is_affiliated_exchange_or_finra\": false,\n   
+                \"is_politically_exposed\": false,\n   
+                \"immediate_family_exposed\": false\n  },\n  \"agreements\":
+                [\n    {\n      \"agreement\": \"margin_agreement\",\n     
+                \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\":
+                \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n   
+                },\n    {\n      \"agreement\": \"account_agreement\",\n     
+                \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\":
+                \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n   
+                },\n    {\n      \"agreement\": \"customer_agreement\",\n     
+                \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\":
+                \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n 
+                ],\n  \"documents\": [\n    {\n      \"document_type\":
+                \"identity_verification\",\n      \"document_sub_type\":
+                \"passport\",\n      \"content\": \"/9j/Cg==\",\n     
+                \"mime_type\": \"image/jpeg\"\n    }\n  ],\n 
+                \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n   
+                \"family_name\": \"Doe\",\n    \"email_address\":
+                \"jane.doe@example.com\"\n  }\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAccount:
+    get:
+      tags:
+        - Account
+      summary: Get All Account Alpaca
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAccountByAccountId:
+    get:
+      tags:
+        - Account
+      summary: Get Account By Account Id
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 42baa748-911f-49d7-b700-41663025bacf
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAccountActivity:
+    get:
+      tags:
+        - Account
+      summary: Get All Account Activity
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAccountActivityByType:
+    get:
+      tags:
+        - Account
+      summary: Get Account Activity By Type
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+        - name: activity_type
+          in: query
+          schema:
+            type: string
+          example: CSD
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/createOrder:
+    post:
+      tags:
+        - Trade
+      summary: Create Order
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n  \"symbol\": \"TRIP\",\n  \"notional\": \"10\",\n 
+                \"side\": \"buy\",\n  \"type\": \"market\",\n 
+                \"time_in_force\": \"day\"\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ''
+          in: header
+          schema:
+            type: string
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAllOrders:
+    get:
+      tags:
+        - Trade
+      summary: Get All Orders
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getOrderByOrderId:
+    get:
+      tags:
+        - Trade
+      summary: Get Order By Order Id
+      parameters:
+        - name: order_id
+          in: query
+          schema:
+            type: string
+          example: 42baa748-911f-49d7-b700-41663025bacf
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAllOpenPosition:
+    get:
+      tags:
+        - Trade
+      summary: Get All Open Position
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getPositionBySymbol:
+    get:
+      tags:
+        - Trade
+      summary: Get Open Position By Symbol
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+        - name: symbol
+          in: query
+          schema:
+            type: string
+          example: AAPL
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/closePositionBySymbol:
+    delete:
+      tags:
+        - Trade
+      summary: Close Open Position By Symbol
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+        - name: symbol
+          in: query
+          schema:
+            type: string
+          example: AAPL
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/closeAllPosition:
+    delete:
+      tags:
+        - Trade
+      summary: Close All Open Position By Symbol
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAssets:
+    post:
+      tags:
+        - Market Data
+      summary: Get Assets
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n\t\"class\": \"us_equity\",\n    \"exchange\":
+                \"NASDAQ\",\n    \"status\": \"active\",\n    \"tradable\":
+                true\n}"
+      parameters:
+        - name: ''
+          in: header
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getMarketDataSnapshot:
+    get:
+      tags:
+        - Market Data
+      summary: Get Market Data Snapshot
+      parameters:
+        - name: ''
+          in: header
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: symbol
+          in: query
+          schema:
+            type: string
+          example: SBTX
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getAssetsWithMarketData:
+    post:
+      tags:
+        - Market Data
+      summary: Get Assets With Market Data
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n\t\"class\": \"us_equity\",\n    \"exchange\":
+                \"NASDAQ\",\n    \"status\": \"active\",\n    \"tradable\":
+                true\n}"
+      parameters:
+        - name: ''
+          in: header
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getBars:
+    post:
+      tags:
+        - Market Data
+      summary: Get Market Bars
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: '"{\n\t\"symbols\":\"SBTX\",\n\t\"timeframe\":\"1Day\"\n}"'
+      parameters:
+        - name: ''
+          in: header
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/createAchRelationship:
+    post:
+      tags:
+        - Fund
+      summary: Create Ach Relations
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n  \"account_owner_name\": \"John Doe\",\n 
+                \"bank_account_type\": \"CHECKING\",\n  \"bank_account_number\":
+                \"32131231abc\",\n  \"bank_routing_number\": \"121000358\",\n 
+                \"nickname\": \"Bank of America Checking\"\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getListAch:
+    get:
+      tags:
+        - Fund
+      summary: Get List Ach
+      parameters:
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/createTransferAmount:
+    post:
+      tags:
+        - Fund
+      summary: Create Transfer Amount
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n  \"transfer_type\": \"ach\",\n  \"relationship_id\":
+                \"8b85be97-65c3-41d2-838e-7992459d8776\",\n  \"amount\":
+                \"5\",\n  \"direction\": \"INCOMING\"\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /alpaca/getListTransfer:
+    get:
+      tags:
+        - Fund
+      summary: Get List Transfer
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: account_id
+          in: query
+          schema:
+            type: string
+          example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
