@@ -1,3 +1,5 @@
+import { HOST } from '@/config';
+
 /**
  * @method isEmpty
  * @param {String | Number | Object} value
@@ -26,4 +28,13 @@ export const generateOTP = () => {
     OTP += digits[Math.floor(Math.random() * 10)];
   }
   return { otp: OTP.toString(), otpID };
+};
+
+export const convertPostHashtag = (content: string) => {
+  const result = content.replace(/(#\S*)/g, hashtag => {
+    const hash = hashtag.substr(1);
+    return `<a href='${HOST}/api/v1/posts/tag/${hash}' target='_blank'>#${hash}</a>`;
+  });
+
+  return result;
 };

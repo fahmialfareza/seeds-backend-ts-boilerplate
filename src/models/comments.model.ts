@@ -1,14 +1,14 @@
 import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
 import { IComment } from '@interfaces/comments.interface';
 
-export type CommentCreationAttributes = Optional<IComment, 'id' | 'idUser' | 'idPost' | 'comment' | 'commentedOn'>;
+export type CommentCreationAttributes = Optional<IComment, 'id' | 'idUser' | 'idPost' | 'comment' | 'replyOn'>;
 
 export class CommentModel extends Model<IComment, CommentCreationAttributes> implements IComment {
   public id: number;
   public idUser: number;
   public idPost: number;
   public comment: string;
-  public commentedOn: number;
+  public replyOn: number;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -34,8 +34,8 @@ export default function (sequelize: Sequelize): typeof CommentModel {
         allowNull: false,
         type: DataTypes.TEXT,
       },
-      commentedOn: {
-        allowNull: false,
+      replyOn: {
+        allowNull: true,
         type: DataTypes.INTEGER,
       },
     },

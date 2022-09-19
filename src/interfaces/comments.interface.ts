@@ -3,5 +3,5 @@ export interface IComment {
   idUser: number;
   idPost: number;
   comment: string;
-  commentedOn: number;
+  replyOn: number;
 }

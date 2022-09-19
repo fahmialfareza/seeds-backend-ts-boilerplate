@@ -8,45 +8,43 @@ datasource db {
 }
 
 model users {
-  id              Int      @id @default(autoincrement())
-  idWallet        Int?
-  phone           String
-  email           String?
-  avatar          String?
-  seedsTag        String?
-  otp             String?
-  pin             String
-  countPost       Int?     @default(0)
-  countFollowers  Int?     @default(0)
-  countFollowings Int?     @default(0)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  posts    posts[]
-  comments comments[]
+  id               Int        @id @default(autoincrement())
+  id_wallet        Int?
+  phone            String
+  email            String?
+  avatar           String?
+  seeds_tag        String?
+  seeds_name       String?
+  otp              String?
+  pin              String
+  count_post       Int?       @default(0)
+  count_followers  Int?       @default(0)
+  count_followings Int?       @default(0)
+  created_at       DateTime   @default(now())
+  updated_at       DateTime   @updatedAt
+  comments         comments[]
+  posts            posts[]
 }
 
 model posts {
-  id        Int      @id @default(autoincrement())
-  idUser    Int
-  title     String
-  content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  users    users      @relation(fields: [idUser], references: [id])
-  comments comments[]
+  id         Int        @id @default(autoincrement())
+  id_user    Int
+  title      String
+  content    String
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+  users      users      @relation(fields: [id_user], references: [id])
+  comments   comments[]
 }
 
 model comments {
-  id          Int      @id @default(autoincrement())
-  idUser      Int
-  idPost      Int
-  comment     String
-  commentedOn Int?     @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  User users @relation(fields: [idUser], references: [id])
-  Post posts @relation(fields: [idPost], references: [id])
+  id           Int      @id @default(autoincrement())
+  id_user      Int
+  id_post      Int
+  comment      String
+  reply_on     Int?     @default(0)
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  Post         posts    @relation(fields: [id_post], references: [id])
+  User         users    @relation(fields: [id_user], references: [id])
 }
