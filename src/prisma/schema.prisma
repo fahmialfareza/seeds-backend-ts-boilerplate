@@ -10,8 +10,8 @@ datasource db {
 model users {
   id               Int        @id @default(autoincrement())
   id_wallet        Int?
-  phone            String
-  email            String?
+  phone            String     @unique
+  email            String?    @unique
   avatar           String?
   seeds_tag        String?
   seeds_name       String?
@@ -42,7 +42,7 @@ model comments {
   id_user      Int
   id_post      Int
   comment      String
-  reply_on     Int?     @default(0)
+  reply_on     Int?     
   created_at   DateTime @default(now())
   updated_at   DateTime @updatedAt
   Post         posts    @relation(fields: [id_post], references: [id])

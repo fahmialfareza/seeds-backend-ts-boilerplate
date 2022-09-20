@@ -1,19 +1,16 @@
 openapi: 3.0.0
 info:
   title: Seeds API
-  description: ''
   version: 1.0.0
 servers:
   - url: http://{{host}}
 tags:
   - name: Account
-    description: ''
   - name: Trade
-    description: ''
   - name: Market Data
-    description: ''
   - name: Fund
-    description: ''
+  - name: Auth
+  - name: Posts Comments
 paths:
   /alpaca/createAccount:
     post:
@@ -521,6 +518,193 @@ paths:
           schema:
             type: string
           example: 3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: '"{\n    \"phone\": \"6285123456789\",\n    \"pin\": 123456\n}"'
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\n    \"phone\": \"6285123456789\",\n    \"pin\":
+                \"123456\"\n}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/posts:
+    post:
+      tags:
+        - Posts Comments
+      summary: Create Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: world
+                content: 'hello #alfareza world'
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: SeeDS {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Posts Comments
+      summary: Get All Posts
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: SeeDS {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/posts/1:
+    get:
+      tags:
+        - Posts Comments
+      summary: Get Post by ID
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: SeeDS {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/posts/tag/alfareza:
+    get:
+      tags:
+        - Posts Comments
+      summary: Get Post by Hashtag
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: SeeDS {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/comments:
+    post:
+      tags:
+        - Posts Comments
+      summary: Create Reply on Comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                comment: 'apa woy #alfareza'
+                replyOn: 2
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: SeeDS {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/comments/1:
+    get:
+      tags:
+        - Posts Comments
+      summary: Get Comments By Post
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: SeeDS {{token}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response

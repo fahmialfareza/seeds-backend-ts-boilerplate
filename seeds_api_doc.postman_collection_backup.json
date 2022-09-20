@@ -1,0 +1,829 @@
+{
+	"variables": [
+	  
+	],
+	"info": {
+	  "name": "Seeds API",
+	  "_postman_id": "709f1d4d-8007-6d8f-a082-97ceeb7bbff6",
+	  "description": "",
+	  "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+	  {
+		"name": "Account",
+		"description": "",
+		"item": [
+		  {
+			"name": "Create Account",
+			"request": {
+			  "url": "{{host}}/alpaca/createAccount",
+			  "method": "POST",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn1@gmail.com\",\n    \"phone_number\": \"+6287821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"Bandung\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get All Account Alpaca",
+			"request": {
+			  "url": "{{host}}/alpaca/getAccount",
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"client_id\": \"7a3c52a910e1dc2abbb14da2b6b8e711\",\n  \"client_secret\": \"{client_secret}\",\n  \"redirect_uri\": \"www.example.com/oauth_redirect\",\n  \"scope\": \"general\",\n  \"account_id\": \"{account_id}\"\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get Account By Account Id",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getAccountByAccountId?account_id=42baa748-911f-49d7-b700-41663025bacf",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getAccountByAccountId"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "42baa748-911f-49d7-b700-41663025bacf",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get All Account Activity",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getAccountActivity?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getAccountActivity"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  },
+				  {
+					"key": "",
+					"value": "",
+					"equals": true,
+					"description": "",
+					"disabled": true
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get Account Activity By Type",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getAccountActivityByType?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86&activity_type=CSD",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getAccountActivityByType"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  },
+				  {
+					"key": "activity_type",
+					"value": "CSD",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  }
+		]
+	  },
+	  {
+		"name": "Trade",
+		"description": "",
+		"item": [
+		  {
+			"name": "Create Order",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/createOrder?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "createOrder"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "POST",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				},
+				{
+				  "key": "",
+				  "value": "",
+				  "description": "",
+				  "disabled": true
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"symbol\": \"TRIP\",\n  \"notional\": \"10\",\n  \"side\": \"buy\",\n  \"type\": \"market\",\n  \"time_in_force\": \"day\"\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get All Orders",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getAllOrders?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getAllOrders"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get Order By Order Id",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getOrderByOrderId?order_id=42baa748-911f-49d7-b700-41663025bacf",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getOrderByOrderId"
+				],
+				"query": [
+				  {
+					"key": "order_id",
+					"value": "42baa748-911f-49d7-b700-41663025bacf",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				
+			  ],
+			  "body": {
+				
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get All Open Position",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getAllOpenPosition?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getAllOpenPosition"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get Open Position By Symbol",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getPositionBySymbol?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86&symbol=AAPL",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getPositionBySymbol"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  },
+				  {
+					"key": "symbol",
+					"value": "AAPL",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Close Open Position By Symbol",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/closePositionBySymbol?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86&symbol=AAPL",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "closePositionBySymbol"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  },
+				  {
+					"key": "symbol",
+					"value": "AAPL",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "DELETE",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Close All Open Position By Symbol",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/closeAllPosition?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "closeAllPosition"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  },
+				  {
+					"key": "",
+					"value": "",
+					"equals": true,
+					"description": "",
+					"disabled": true
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "DELETE",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"contact\": {\n    \"email_address\": \"r4hmadn@gmail.com\",\n    \"phone_number\": \"087821655618\",\n    \"street_address\": [\"20 N San Mateo Dr\"],\n    \"unit\": \"Apt 1A\",\n    \"city\": \"San Mateo\",\n    \"state\": \"CA\",\n    \"postal_code\": \"40556\",\n    \"country\": \"IDN\"\n  },\n  \"identity\": {\n    \"given_name\": \"Ryan\",\n    \"middle_name\": \"Ahmad\",\n    \"family_name\": \"Nuriana\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"tax_id\": \"666-55-4321\",\n    \"tax_id_type\": \"IDN_KTP\",\n    \"country_of_citizenship\": \"USA\",\n    \"country_of_birth\": \"USA\",\n    \"country_of_tax_residence\": \"USA\",\n    \"funding_source\": [\"employment_income\"]\n  },\n  \"disclosures\": {\n    \"is_control_person\": false,\n    \"is_affiliated_exchange_or_finra\": false,\n    \"is_politically_exposed\": false,\n    \"immediate_family_exposed\": false\n  },\n  \"agreements\": [\n    {\n      \"agreement\": \"margin_agreement\",\n      \"signed_at\": \"2020-09-11T18:09:33Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"account_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"customer_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    },\n    {\n      \"agreement\": \"crypto_agreement\",\n      \"signed_at\": \"2020-09-11T18:13:44Z\",\n      \"ip_address\": \"185.13.21.99\",\n      \"revision\": \"16.2021.05\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"document_type\": \"identity_verification\",\n      \"document_sub_type\": \"passport\",\n      \"content\": \"/9j/Cg==\",\n      \"mime_type\": \"image/jpeg\"\n    }\n  ],\n  \"trusted_contact\": {\n    \"given_name\": \"Jane\",\n    \"family_name\": \"Doe\",\n    \"email_address\": \"jane.doe@example.com\"\n  }\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  }
+		]
+	  },
+	  {
+		"name": "Market Data",
+		"description": "",
+		"item": [
+		  {
+			"name": "Get Assets",
+			"request": {
+			  "url": "{{host}}/alpaca/getAssets",
+			  "method": "POST",
+			  "header": [
+				{
+				  "key": "",
+				  "value": "",
+				  "description": "",
+				  "disabled": true
+				},
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n\t\"class\": \"us_equity\",\n    \"exchange\": \"NASDAQ\",\n    \"status\": \"active\",\n    \"tradable\": true\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get Market Data Snapshot",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getMarketDataSnapshot?symbol=SBTX",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getMarketDataSnapshot"
+				],
+				"query": [
+				  {
+					"key": "symbol",
+					"value": "SBTX",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "",
+				  "value": "",
+				  "description": "",
+				  "disabled": true
+				},
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n\t\"class\": \"us_equity\",\n    \"exchange\": \"NASDAQ\",\n    \"status\": \"active\",\n    \"tradable\": true\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get Assets With Market Data",
+			"request": {
+			  "url": "{{host}}/alpaca/getAssetsWithMarketData",
+			  "method": "POST",
+			  "header": [
+				{
+				  "key": "",
+				  "value": "",
+				  "description": "",
+				  "disabled": true
+				},
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n\t\"class\": \"us_equity\",\n    \"exchange\": \"NASDAQ\",\n    \"status\": \"active\",\n    \"tradable\": true\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get Market Bars",
+			"request": {
+			  "url": "{{host}}/alpaca/getBars",
+			  "method": "POST",
+			  "header": [
+				{
+				  "key": "",
+				  "value": "",
+				  "description": "",
+				  "disabled": true
+				},
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n\t\"symbols\":\"SBTX\",\n\t\"timeframe\":\"1Day\"\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  }
+		]
+	  },
+	  {
+		"name": "Fund",
+		"description": "",
+		"item": [
+		  {
+			"name": "Create Ach Relations",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/createAchRelationship?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "createAchRelationship"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "POST",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"account_owner_name\": \"John Doe\",\n  \"bank_account_type\": \"CHECKING\",\n  \"bank_account_number\": \"32131231abc\",\n  \"bank_routing_number\": \"121000358\",\n  \"nickname\": \"Bank of America Checking\"\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get List Ach",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getListAch?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getListAch"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				
+			  ],
+			  "body": {
+				
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Create Transfer Amount",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/createTransferAmount?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "createTransferAmount"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "POST",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"transfer_type\": \"ach\",\n  \"relationship_id\": \"8b85be97-65c3-41d2-838e-7992459d8776\",\n  \"amount\": \"5\",\n  \"direction\": \"INCOMING\"\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  },
+		  {
+			"name": "Get List Transfer",
+			"request": {
+			  "url": {
+				"raw": "{{host}}/alpaca/getListTransfer?account_id=3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+				"host": [
+				  "{{host}}"
+				],
+				"path": [
+				  "alpaca",
+				  "getListTransfer"
+				],
+				"query": [
+				  {
+					"key": "account_id",
+					"value": "3b9b268a-d2c1-40fe-a14d-1eb0e4e6dc86",
+					"equals": true,
+					"description": ""
+				  }
+				],
+				"variable": [
+				  
+				]
+			  },
+			  "method": "GET",
+			  "header": [
+				{
+				  "key": "Content-Type",
+				  "value": "application/json",
+				  "description": ""
+				}
+			  ],
+			  "body": {
+				"mode": "raw",
+				"raw": "{\n  \"transfer_type\": \"ach\",\n  \"relationship_id\": \"\",\n  \"amount\": \"5000\",\n  \"direction\": \"INCOMING\"\n}"
+			  },
+			  "description": ""
+			},
+			"response": [
+			  
+			]
+		  }
+		]
+	  }
+	]
+  }

@@ -5,28 +5,39 @@ import { convertPostHashtag } from '@/utils/util';
 
 class PostService {
   public async getAllPosts() {
-    return DB.Posts.findAll();
+    const posts = (await DB.Posts.findAll()).map(post => {
+      post.content = convertPostHashtag(post.content);
+      return post;
+    });
+
+    return posts;
   }
 
   public async getPostsByHastag(tag: string) {
-    return DB.Posts.findAll({
-      where: {
-        content: {
-          [Op.iLike]: `%#${tag}%`,
+    const posts = (
+      await DB.Posts.findAll({
+        where: {
+          content: {
+            [Op.iLike]: `%#${tag}%`,
+          },
         },
-      },
+      })
+    ).map(post => {
+      post.content = convertPostHashtag(post.content);
+      return post;
     });
+
+    return posts;
   }
 
   public async getPost(id: number) {
     const post = await DB.Posts.findByPk(id);
+    post.content = convertPostHashtag(post.content);
+
     return post;
   }
 
   public async createPost(post: PostModel) {
-    const content = convertPostHashtag(post.content);
-    post.content = content;
-
     return DB.Posts.create(post);
   }
 }
